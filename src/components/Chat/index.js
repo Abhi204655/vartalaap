@@ -3,7 +3,7 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import { useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import Sidebar from "../Sidebar";
+// import Sidebar from "../Sidebar";
 import Infobar from "../Infobar";
 import ChatInput from "../ChatInput";
 import Messages from "../Messages";
@@ -31,7 +31,7 @@ const Chat = () => {
   const location = useLocation();
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const classes = useStyles();
@@ -58,9 +58,9 @@ const Chat = () => {
     socket.on("message", (message) => {
       setMessages([...messages, message]);
     });
-    socket.on("roomData", ({ users }) => {
-      setUsers(users);
-    });
+    // socket.on("roomData", ({ users }) => {
+    //   setUsers(users);
+    // });
   }, [messages]);
 
   const sendMessage = (e) => {
