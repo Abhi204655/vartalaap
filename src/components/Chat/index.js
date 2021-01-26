@@ -9,8 +9,8 @@ import ChatInput from "../ChatInput";
 import Messages from "../Messages";
 
 let socket;
-// const ENDPOINT = "https://react-node-chat-app-socket.herokuapp.com/";
-const ENDPOINT = "localhost:5000";
+const ENDPOINT = "https://react-node-chat-app-socket.herokuapp.com/";
+// const ENDPOINT = "localhost:5000";
 
 const useStyles = makeStyles((theme) => ({
   chatWrapper: {
