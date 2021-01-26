@@ -9,7 +9,8 @@ import ChatInput from "../ChatInput";
 import Messages from "../Messages";
 
 let socket;
-const ENDPOINT = "https://react-node-chat-app-socket.herokuapp.com/";
+// const ENDPOINT = "https://react-node-chat-app-socket.herokuapp.com/";
+const ENDPOINT = "localhost:5000";
 
 const useStyles = makeStyles((theme) => ({
   chatWrapper: {
@@ -46,6 +47,9 @@ const Chat = () => {
     socket.emit("join", { name, room }, () => {
       console.log("user,joined");
     });
+    // socket.on("roomData", ({ users }) => {
+    //   setUsers(users);
+    // });
 
     return () => {
       socket.disconnect();
@@ -56,12 +60,10 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      setMessages([...messages, message]);
+      setMessages((messages) => [...messages, message]);
     });
-    // socket.on("roomData", ({ users }) => {
-    //   setUsers(users);
-    // });
-  }, [messages]);
+    console.log("rerendering");
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();
